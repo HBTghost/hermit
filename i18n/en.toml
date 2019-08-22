@@ -14,6 +14,9 @@ other = "Archives"
 
 # posts/single.html
 #
+[titlePost]
+other = "Posts"
+
 [seeAlso]
 other = "See Also"
 
@@ -29,10 +32,22 @@ other = "Newer"
 [older]
 other = "Older"
 
+[featuredImage]
+other = "Featured Image"
+
+[reference]
+other = "References"
+
 # partials/header.html
 #
 [menu]
 other = "Menu"
 
-[featuredImage]
-other = "Featured Image"
+[author]
+other = "Thai Ngo"
+
+[made]
+other = "Made with"
+
+[theme]
+other = "Theme"
