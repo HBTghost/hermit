@@ -1,15 +1,17 @@
 <style>
 	#but {
-		background-color: #383d47;
+		color: #fff;
+		background-color: #5a6272;
 		border-radius: 4px;
 		outline: none;
 		border: none;
+		width: 3cm;
 	}
 	#but:hover {
-		background-color: #494f5c;
+		background-color: #4f5664;
 	}
 	#but:active {
-	  background-color: #494f5c;
+	  background-color: #4f5664;
 	  box-shadow: 0 3px #666;
 	  transform: translateY(4px);
 	}
@@ -24,7 +26,7 @@
 		{{- end }}
 		</span>
 	{{- else }}
-		| <button onclick="location={{ .URL | absLangURL }}" id="but">{{ .Name }}</button>
+		<div><button onclick="location={{ .URL | absLangURL }}" id="but">{{ .Name }}</button></div>
 	{{- end }}
 {{- end }}
 

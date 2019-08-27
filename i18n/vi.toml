@@ -14,8 +14,11 @@ other = "Mục tiêu"
 
 # posts/single.html
 #
-[titlePost]
+[posts]
 other = "Bài viết"
+
+[categories]
+other = "Thể loại"
 
 [seeAlso]
 other = "Xem thêm"

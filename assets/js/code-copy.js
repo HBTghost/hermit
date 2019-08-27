@@ -16,7 +16,7 @@
     el.textContent = msg;
     setTimeout(function() {
       el.textContent = "Copy";
-    }, 1000);
+    }, 1500);
   }
 
   function selectText(node) {

@@ -392,7 +392,7 @@ p.img-404 {
   display: flex;
   flex-grow: 1;
   flex-direction: column;
-  justify-content: center;
+  justify-content: left;
 }
 
 #home-title {
@@ -420,14 +420,12 @@ p.img-404 {
   }
 }
 
-#home-nav {
-  opacity: .8;
-
-  a {
-    display: block;
-    text-align: center;
-    margin-top: .5em;
-  }
+#home-nav button {
+  display: inline-block;
+  vertical-align: top;
+  zoom: 1; /* Fix for IE7 */
+  *display: inline; /* Fix for IE7 */;
+  text-align: center;
 }
 
 #home-footer {
@@ -897,3 +895,4 @@ hr.post-end {
     right: 1.2em;
   }
 }
+

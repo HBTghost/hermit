@@ -14,8 +14,11 @@ other = "Archives"
 
 # posts/single.html
 #
-[titlePost]
+[posts]
 other = "Posts"
+
+[categories]
+other = "Categories"
 
 [seeAlso]
 other = "See Also"

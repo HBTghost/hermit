@@ -19,20 +19,7 @@
 				<span class="hdr-social hide-in-mobile">{{ partialCached "social-icons.html" . }}</span>
 				{{- end -}}
 				<button id="menu-btn" class="hdr-btn" title="{{i18n "menu"}}"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg></button>
-				{{ range $.Site.Home.AllTranslations }}
-				      <a class="button is-small is-rounded" href="{{ .URL | absURL}}">{{ .Site.Language.LanguageName }}</a>
-				      {{ end }}
-<!-- 				<select name="mdb-select md-form" onchange="location = '/' + this.value" style="background-color: #494f5c; border-radius: 4px;">
-					{{ $lang := .Language.LanguageName }}
-					{{ range $.Site.Home.AllTranslations }}
-					{{ if eq .Language.LanguageName $lang }}
-					<option value="{{ .Language.LanguageName }}" disabled selected>{{ .Language.LanguageName }}</option>
-					{{ else }}
-					<option value="{{ .Language.LanguageName }}">{{ .Language.LanguageName }}</option>
-					{{ end }}
-					{{ end }}
-				</select>
- -->			</div>
+			</div>
 		</div>
 	</header>
 	<div id="mobile-menu" class="animated fast">

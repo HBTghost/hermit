@@ -4,12 +4,32 @@
 
 {{ define "main" }}
 	<main class="site-main section-inner thin animated fadeIn faster">
-		<h1>{{ i18n "titlePost" }}</h1>
-		{{- if .Content }}
-		<div class="content">
-			{{ .Content }}
+		{{ $lastUrlElement := index (last 1 (split (delimit (split .RelPermalink "/") "," "") ",")) 0 }}
+		{{- if eq $lastUrlElement "categories" }}
+		<h1>{{ i18n "categories" }}</h1>
+		<div class="posts-group">
+			<ul class="posts-list">
+				{{ range $name, $items := .Site.Taxonomies.categories }}
+				<li class="post-item">
+					<a href="{{ "categories/" | absLangURL}}{{ $name | urlize}}">
+						{{ $temp := $name}}
+						{{ $fName := upper (replace $temp "-" " ") }}
+						<span class="post-title">{{ $fName }}</span>
+						<span class="post-day">({{ len $items }})</span>
+					</a>
+				</li>
+				{{- end }}
+			</ul>
 		</div>
+
+		{{- else }}
+		<h1>{{ i18n "posts" }}</h1>
+		{{- if .Content }}
+			<div class="content">
+				{{ .Content }}
+			</div>
 		{{- end }}
+
 		{{- range .Data.Pages.GroupByDate "2006" }}
 		<div class="posts-group">
 			<div class="post-year" id="{{ .Key }}">{{ .Key }}</div>
@@ -24,6 +44,8 @@
 				{{- end }}
 			</ul>
 		</div>
+		{{- end }}
+
 		{{- end }}
 	</main>
 {{ end }}

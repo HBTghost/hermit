@@ -14,8 +14,11 @@ other = "標的"
 
 # posts/single.html
 #
-[titlePost]
+[posts]
 other = "投稿"
+
+[categories]
+other = "カテゴリー"
 
 [seeAlso]
 other = "また見なさい"
