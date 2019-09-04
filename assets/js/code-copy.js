@@ -7,6 +7,20 @@
 // https://www.fiznool.com/blog/2018/09/14/adding-click-to-copy-buttons-to-a-hugo-powered-blog/
 (function() {
   'use strict';
+      var modeW = document.getElementById("IDCommentsPostTitle").innerHTML;
+      var _copy = 'Copy';
+      var _copied = 'Copied';
+      var _fail = 'Failed:\'('
+      if (modeW === 'vi') {
+        _copy = 'Sao chép';
+        _copied = 'Đã sao chép';
+        _fail = 'Thất bại:\'(';
+      } else if (modeW === 'jp') {
+        _copy = 'コピー';
+        _copied = 'コピーしました';
+        _fail = '失敗した:\'(';
+      }
+
 
   if(!document.queryCommandSupported('copy')) {
     return;
@@ -15,7 +29,7 @@
   function flashCopyMessage(el, msg) {
     el.textContent = msg;
     setTimeout(function() {
-      el.textContent = "Copy";
+      el.textContent = _copy;
     }, 1500);
   }
 
@@ -31,7 +45,7 @@
   function addCopyButton(containerEl) {
     var copyBtn = document.createElement("button");
     copyBtn.className = "highlight-copy-btn";
-    copyBtn.textContent = "Copy";
+    copyBtn.textContent = _copy;
 
     var codeEl = containerEl.firstElementChild;
     copyBtn.addEventListener('click', function() {
@@ -40,10 +54,10 @@
         document.execCommand('copy');
         selection.removeAllRanges();
 
-        flashCopyMessage(copyBtn, 'Copied!')
+        flashCopyMessage(copyBtn, _copied)
       } catch(e) {
         console && console.log(e);
-        flashCopyMessage(copyBtn, 'Failed :\'(')
+        flashCopyMessage(copyBtn, _fail);
       }
     });
 

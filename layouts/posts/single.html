@@ -13,14 +13,21 @@
 {{ end }}
 
 {{ define "main" }}
+
 	{{- if (or .Params.images .Params.featuredImg) }}
 	<div class="bg-img"></div>
 	{{- end }}
 	<main class="site-main section-inner animated fadeIn faster">
 		<article class="thin">
 			<header class="post-header">
-				<div class="post-meta"><span>{{ .Date.Format .Site.Params.dateform }}</span></div>
 				<h1>{{ .Title }}</h1>
+				{{- if eq .Language.LanguageName "en"}}
+				<div class="post-meta"><span>{{ .Date.Format .Site.Params.dateform }} &#183; {{ math.Round (div (countwords .Content) 220.0) }} min read</span></div>
+				{{- else if eq .Language.LanguageName "vi"}}
+				<div class="post-meta"><span>Ngày {{ .Lastmod.Day}} Tháng {{ index $.Site.Data.intMonth (printf "%d" .Lastmod.Month) }} Năm {{ .Lastmod.Year }} &#183; {{ math.Round (div (countwords .Content) 220.0) }} phút đọc</span></div>
+				{{- else }}
+				<div class="post-meta"><span>{{ .Lastmod.Year }}年{{ index $.Site.Data.intMonth (printf "%d" .Lastmod.Month) }}月{{ .Lastmod.Day}}日 &#183; 読み取り{{ math.Round (div (countwords .Content) 500.0) }}分</span></div>
+				{{- end }}
 			</header>
 			<hr class="post-header">
 			<div class="content">
@@ -30,12 +37,35 @@
 			{{- partial "related-posts.html" . -}}
 			{{- end }}
 			<hr class="post-end">
+			<style>
+				#but1 {
+					color: #fff;
+					background-color: #5a6272;
+					border-radius: 4px;
+					outline: none;
+					border: none;
+					/*width: 3cm;*/
+				}
+				#but1:hover {
+					background-color: #4f5664;
+				}
+				#but1:active {
+				  background-color: #4f5664;
+				  box-shadow: 0 3px #666;
+				  transform: translateY(4px);
+				}
+			</style>
+			<script>
+				function go(link) {
+					window.location = link;
+				}
+			</script>
 			<footer class="post-info">
 				{{- with .Params.tags }}
 				<p>
 					<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag meta-icon"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7" y2="7"></line></svg>
 					{{- range . -}}
-					<span class="tag"><a href="{{ "/tags/" | absLangURL}}{{ . | urlize }}">{{.}}</a></span>
+					<a href="{{ "/tags/" | absLangURL}}{{ . | urlize }}"><button id="but1">{{.}}</button> </a></span>
 					{{- end }}
 				</p>
 				{{- end }}

@@ -1,6 +1,9 @@
 # Translations for Simplified Chinese - 简体中文
 # https://gohugo.io/content-management/multilingual/#translation-of-strings
 
+[poweredBy]
+other = "搭載"
+
 # 404.html
 #
 [notFound]
@@ -19,6 +22,9 @@ other = "投稿"
 
 [categories]
 other = "カテゴリー"
+
+[series]
+other = "シリーズ"
 
 [seeAlso]
 other = "また見なさい"

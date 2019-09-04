@@ -3,8 +3,11 @@
 
 <head>
 	<meta charset="UTF-8">
+	<meta name="google-site-verification" content="wHMaHv7-oKdgueYZDdGVqkRUnxB6oa1umdnh_Ixt-DE" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<script src="/js/config.js"></script>
+	<script data-main="/js/embed" src="/js/components/requirejs/require.js"></script>
 	{{- with .Site.Params.themeColor }}
 	<meta name="theme-color" content="{{.}}">
 	<meta name="msapplication-TileColor" content="{{.}}">
@@ -24,6 +27,13 @@
 	{{- if templates.Exists "partials/extra-head.html" -}}
 	{{ partial "extra-head.html" . }}
 	{{- end }}
+	<style>
+	.highlight-copy-btn {
+		border: none;
+		outline: none;
+		padding: 2px;	
+	}	
+	</style>
 </head>
 
 <body id="page" style="font-family: Verdana !important">

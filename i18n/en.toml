@@ -1,6 +1,8 @@
 # Translations for English
 # https://gohugo.io/content-management/multilingual/#translation-of-strings
 
+[poweredBy]
+other = "Powered by"
 # 404.html
 #
 [notFound]
@@ -19,6 +21,9 @@ other = "Posts"
 
 [categories]
 other = "Categories"
+
+[series]
+other = "Series"
 
 [seeAlso]
 other = "See Also"

@@ -1,6 +1,9 @@
 # Translations for Italian
 # https://gohugo.io/content-management/multilingual/#translation-of-strings
 
+[poweredBy]
+other = "Cung cấp bởi"
+
 # 404.html
 #
 [notFound]
@@ -19,6 +22,9 @@ other = "Bài viết"
 
 [categories]
 other = "Thể loại"
+
+[series]
+other = "Loạt"
 
 [seeAlso]
 other = "Xem thêm"
